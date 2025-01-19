@@ -69,9 +69,10 @@ header {
         }
       
     }
-
+/*end logo-holder*/
     nav {
         display: flex;
+        align-items: center;
 
        
 
@@ -79,10 +80,7 @@ header {
             display: flex;
             list-style-type: none;
             gap: 5px;
-            /*HIDE DESKTOP MENU*/
-            @media (max-width: 768px) {
-                display: none;
-            }
+            
 
             li {
                 display: inline-block;
@@ -97,6 +95,7 @@ header {
                         margin-top: -10px;
                         
                         &:hover {
+                            color: var(--base-100);
                             text-decoration: none;
                         }
                     }
@@ -119,6 +118,38 @@ header {
             }
         }
     }
+    /*end nav*/
+    @media (max-width: 1024px) {
+        justify-content: space-between;
+  		flex-direction:column;
+		align-items:center;
+	}
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+
+        nav {margin-top:10px;
+			width:100%;
+			ul {
+				display:none;     /*HIDE DESKTOP MENU*/
+				flex-direction:column;
+				text-align:center;
+				width:100%;
+				a {
+					width:100%;
+
+                    &:last-child {
+                      margin: 10px auto;
+                    }
+				}
+				&.active {
+					display:flex;
+				}
+			}
+		}
+	}
 }
 .button {
     display: block;
