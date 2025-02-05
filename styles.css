@@ -1,0 +1,200 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --base: #555;
+    --base-100: #f1f1f1;
+    --base-400: #555;
+    --base-800: #000;
+    --yellow: #ffda4b;
+    --yellow-100: #fffbe6;
+    --yellow-400: #ffda4b;
+    --yellow-800: #8b6f00;
+    --blue: #0a61ae;
+    --blue-100:#e2f8ff;
+    --blue-400: #61dafb;
+    --blue-800: #0a61ae;
+
+    --default-font: "Open Sans", serif;
+}
+
+body {
+    font-family: var(--default-font);
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: var(--blue);
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    .logo-holder {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        font-weight: 600;
+        color: var(--base-800);
+        
+     
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background-color: var(--base-800);
+            color: var(--base-100);
+            height: 64px;
+            width: 64px;
+            margin-right: 20px;
+            border-radius: 50%;
+
+
+        }
+        .logo-text {
+            flex: 1;
+        }
+      
+    }
+/*end logo-holder*/
+    nav {
+        display: flex;
+        align-items: center;
+
+       
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            gap: 5px;
+            
+
+            li {
+                display: inline-block;
+
+                a {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    color: var(--base);
+
+                    &:last-child {
+                        padding-top: 0;
+                        margin-top: -10px;
+                        
+                        &:hover {
+                            color: var(--base-100);
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+        }
+        /*HIDE TOGGLE*/
+        .mobile-toggle {
+            display: none; 
+            margin-top: 15px;
+            padding: 10px;
+            color: var(--base-800);
+
+            @media (max-width: 768px) {
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    }
+    /*end nav*/
+    @media (max-width: 1024px) {
+        justify-content: space-between;
+  		flex-direction:column;
+		align-items:center;
+	}
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+
+        nav {margin-top:10px;
+			width:100%;
+			ul {
+				display:none;     /*HIDE DESKTOP MENU*/
+				flex-direction:column;
+				text-align:center;
+				width:100%;
+				a {
+					width:100%;
+
+                    &:last-child {
+                      margin: 10px auto;
+                    }
+				}
+				&.active {
+					display:flex;
+				}
+			}
+		}
+	}
+}
+.button {
+    display: block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid var(--blue-800);
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    white-space: nowrap;
+}
+
+.button span {
+    position: relative;
+    z-index: 2;
+}
+
+.button:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--blue);
+    transition: all .35s;
+  }
+  
+  .button:hover{
+    color: #fff;
+  }
+  
+  .button:hover:after{
+    width: 100%;
+  }
+/*Container*/
+.main, .footer, .container {
+    max-width: 1440px;
+    padding: 10px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
