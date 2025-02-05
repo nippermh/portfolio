@@ -23,3 +23,5 @@ LAYOUT
     width: 300px;
     height: 400px;
 }
+
+This file will be used to keep notes.
